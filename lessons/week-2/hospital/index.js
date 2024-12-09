@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   const kidneys = users[0].kidneys;
   const numberOfKidneys = kidneys.length;
   const numberOfHealthyKidneys = kidneys.filter(
-    (kidney) => !kidney.healthy,
+    (kidney) => kidney.healthy,
   ).length;
   const numberofUnhealthyKidneys = numberOfKidneys - numberOfHealthyKidneys;
 
@@ -55,9 +55,10 @@ app.put("/", (req, res) => {
     res.json({
       msg: "You have no unhealthy kidneys.",
     });
+    return;
   }
   users[0].kidneys.map((kidney) => {
-    kidney.healthy = true;
+    return (kidney.healthy = true);
   });
   res.json({
     msg: "Done!",
@@ -75,6 +76,7 @@ app.delete("/", (req, res) => {
     res.json({
       msg: "You have no unhealthy kidneys.",
     });
+    return;
   }
   users[0].kidneys = healthyKidneys;
 
