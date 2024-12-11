@@ -85,6 +85,7 @@ app.delete("/", (req, res) => {
   });
 });
 
+// TODO: Add validation logic
 // App Listens on port 3000
 app.listen(3000, () => {
   console.log("App is listening on 3000");
